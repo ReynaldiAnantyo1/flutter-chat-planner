@@ -10,7 +10,7 @@ plugins {
 
 android {
     namespace = "com.SE.groupapp"
-    compileSdk = 35
+    compileSdk = 36
     ndkVersion = "27.0.12077973"
 
     compileOptions {
@@ -40,7 +40,18 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+
 }
+
+
+    dependencies {
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
+
+    // Add the dependencies for the App Check libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-appcheck-playintegrity")
+    }
 
 flutter {
     source = "../.."
